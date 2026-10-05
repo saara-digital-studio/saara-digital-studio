@@ -1,0 +1,99 @@
+/* ===== SAARA DIGITAL STUDIO — styles =====
+   Couleurs : modifier uniquement les variables ci-dessous. */
+:root{
+  --bg:#fcf9fb; --ink:#2a1f2d; --muted:#665a6b;
+  --primary:#6a2f5b; --primary-dark:#4f2043; --line:#eadfe7; --card:#fff;
+  --life:#f8e4ea; --study:#e9e5f6; --digital:#e0eeea; /* teinte de chaque univers */
+  --radius:16px; --shadow:0 8px 28px rgba(106,47,91,.10);
+  --font-title:'Fraunces',Georgia,serif; --font-text:'Nunito Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--font-text);color:var(--ink);background:var(--bg);line-height:1.65}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+.container{width:min(1120px,92%);margin-inline:auto}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:8px 12px;z-index:100}
+h1,h2,h3,.brand,.footer-brand{font-family:var(--font-title);line-height:1.2}
+h1{font-size:clamp(2.1rem,6vw,3.6rem)}
+h2{font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:.5rem}
+h3{font-size:1.25rem;margin-bottom:.25rem}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+
+/* En-tête */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(252,249,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1rem;letter-spacing:.03em;color:var(--primary-dark)}
+.brand-logo{height:36px;width:auto}
+.nav-list{display:flex;gap:4px;list-style:none;padding:0}
+.nav-list a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;transition:background .2s,color .2s}
+.nav-list a:hover,.nav-list a[aria-current=page]{background:var(--life);color:var(--primary-dark)}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:12px;padding:6px 12px;font-size:1.3rem;cursor:pointer;color:var(--primary-dark)}
+@media(max-width:760px){
+  .nav-toggle{display:block}
+  .nav-list{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);padding:12px 4% 16px;border-bottom:1px solid var(--line)}
+  .nav-list.open{display:flex}
+  .brand span{font-size:.85rem}
+}
+
+/* Boutons */
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;font-weight:700;padding:12px 24px;border-radius:999px;margin-top:1rem;transition:background .2s,transform .2s}
+.btn:hover{background:var(--primary-dark);transform:translateY(-2px)}
+
+/* Sections */
+.hero{padding:clamp(64px,12vw,130px) 0;text-align:center;background:linear-gradient(135deg,var(--life),var(--study) 55%,var(--digital))}
+.hero .lead{margin:1rem auto 0;color:var(--ink)}
+.page-hero{padding:clamp(48px,8vw,90px) 0 32px;background:var(--life)}
+.page-hero.study{background:var(--study)}.page-hero.digital{background:var(--digital)}
+.page-hero .lead{margin-top:.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.25rem}
+.chip{padding:6px 16px;border-radius:999px;background:#fff;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s}
+.chip:hover{background:var(--bg)}
+.section{padding:clamp(48px,7vw,84px) 0}
+.section.alt{background:#f5eef3}
+.section .lead{margin-bottom:1.5rem}
+
+/* Grille : 3 colonnes / 2 tablette / 1 mobile */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:1.5rem}
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+
+/* Cartes */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(106,47,91,.16)}
+.card-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.card-body .btn{margin-top:auto;align-self:flex-start}
+.card-body p:not(.meta){margin-bottom:1rem}
+.meta{font-size:.9rem;color:var(--muted);margin-bottom:.75rem}
+.universe.life{border-top:6px solid #e7a9bb}.universe.study{border-top:6px solid #b5a8e0}.universe.digital{border-top:6px solid #92c2b4}
+.card-media{aspect-ratio:1/1;background:linear-gradient(135deg,var(--life),var(--study))}
+.card-media img{width:100%;height:100%;object-fit:cover}
+.badge{align-self:flex-start;font-size:.8rem;font-weight:700;background:var(--life);color:var(--primary-dark);padding:2px 12px;border-radius:999px;margin-bottom:.6rem}
+.price{font-weight:700;color:var(--primary-dark)}
+.price .old{font-weight:400;color:var(--muted);margin-left:6px}
+.card.empty{background:transparent;border:1px dashed #cdbcc8;box-shadow:none;justify-content:center;text-align:center;padding:36px 20px;color:var(--muted)}
+.card.empty:hover{transform:none;box-shadow:none}
+
+/* Étapes et texte */
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s;margin-top:1.5rem}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:4px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;margin-bottom:8px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.prose{max-width:70ch}.prose h2{margin-top:1.5rem}
+
+/* Pied de page */
+.site-footer{background:var(--primary-dark);color:#f3e8f0;padding:48px 0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand{font-weight:700;font-size:1.2rem;margin-bottom:.5rem}
+.site-footer h2{font-size:1rem;margin-bottom:.5rem}
+.site-footer ul{list-style:none;padding:0}
+.site-footer li{margin-bottom:4px}
+.site-footer a{text-decoration:none}.site-footer a:hover{text-decoration:underline}
+.copyright{margin-top:32px;font-size:.85rem;opacity:.8}
+
+/* Apparition progressive (légère) */
+.reveal{opacity:0;transition:opacity .6s}
+.reveal.visible{opacity:1}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1}}
